@@ -8,7 +8,7 @@ resource "aws_instance" "logging-server" {
   subnet_id                   = aws_subnet.public_subnet_2.id
   vpc_security_group_ids      = [aws_security_group.eks_ec2_sg.id]
   associate_public_ip_address = true
-  private_ip                  = "192.168.1.100"
+  private_ip                  = "192.168.2.100"
 
   root_block_device {
     volume_size           = 20
