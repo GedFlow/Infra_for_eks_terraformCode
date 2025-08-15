@@ -1,7 +1,9 @@
 variable "aws_region" {
   description = "The AWS region to deploy resources in."
   type        = string
-  default     = "ap-northeast-2"
+  default     = "ap-northeast-1" # 도쿄 리전
+  # default     = "ap-northeast-2" # 서울 리전
+  # default = "ap-southeast-1" # 싱가포르 리전
 }
 
 variable "cluster_base_name" {
@@ -16,9 +18,8 @@ variable "key_name" {
 }
 
 variable "ami_id" {
-  default = "ami-0fc8aeaa301af7663" # x86 아마존 리눅스
-  # default = "ami-0d5b75db8f1e3ef15"  # ARM 아마존 리눅스
-  type = string
+  default = "ami-0662f4965dfc70aca"
+  type    = string
 }
 
 variable "sg_ingress_ssh_cidr" {
@@ -27,22 +28,16 @@ variable "sg_ingress_ssh_cidr" {
   default     = "0.0.0.0/0"
 }
 
-variable "my_instance_type" {
-  description = "EC2 instance type for the management host."
-  type        = string
-  default     = "t3.micro"
-}
-
 variable "availability_zone_1" {
   description = "First availability zone."
   type        = string
-  default     = "ap-northeast-2a"
+  default     = "ap-northeast-2a" # 서울 리전 가용역역 A
 }
 
 variable "availability_zone_2" {
   description = "Second availability zone."
   type        = string
-  default     = "ap-northeast-2c"
+  default     = "ap-northeast-2c" # 서울 리전 가용역역 C
 }
 
 variable "vpc_block" {
@@ -73,4 +68,16 @@ variable "private_subnet_2_block" {
   description = "CIDR block for the second private subnet."
   type        = string
   default     = "192.168.4.0/24"
+}
+
+variable "role_eks_cluster" {
+  description = "Role for EKS Cluster"
+  type        = string
+  default     = "arn:aws:iam::006478238577:role/eksClusterRole"
+}
+
+variable "role_eks_nodegroup" {
+  description = "Role for EKS NodeGroup"
+  type        = string
+  default     = "arn:aws:iam::006478238577:role/eksNodeRole"
 }
