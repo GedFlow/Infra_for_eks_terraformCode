@@ -1,6 +1,6 @@
-#-----------------------------
+###############################
 # Logging 서버 (Elasticsearch, Kibana)
-#-----------------------------
+###############################
 resource "aws_instance" "logging-server" {
   ami                         = var.ami_id
   instance_type               = "t3.large"

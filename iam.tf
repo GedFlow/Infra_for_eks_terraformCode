@@ -84,15 +84,13 @@
 #   })
 # }
 
-# # (예시) Amazon OpenSearch *도메인형*에 쓰기 권한이 필요할 때
-# # Serverless(AOSS)면 정책/ARN이 다릅니다. 도메인형만 해당.
 # data "aws_caller_identity" "me" {}
 # data "aws_region" "current" {}
 
 # variable "opensearch_domain_name" {
-#   description = "Amazon OpenSearch Service 도메인 이름(도메인형 사용 시)"
+#   description = "Amazon OpenSearch Service 도메인 이름"
 #   type        = string
-#   default     = "" # 도메인형을 안 쓰면 비워두세요.
+#   default     = "" 
 # }
 
 # resource "aws_iam_policy" "fluentbit_os_write" {
